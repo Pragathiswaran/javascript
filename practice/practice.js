@@ -1,11 +1,14 @@
-var total = 10
+var str = 'praga_';
 
-var sum = function(num1, num2){
-    console.log(total)
+// var pattern = /^[a-zA-z0-1._%+-]+@gmail.com$/gi;
+// var pattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/g;
+var pattern = /^[a-zA-Z0-9](?!.*__)[a-zA-Z0-9_]{1,14}[a-zA-Z0-9]$/g
 
-    var total
-    total = num1 + num2 
-   return total
+try{
+    console.lo(str.match(pattern))
+}
+catch(err){
+    console.log(err)
 }
 
-console.log(sum(10, 20))
+// console.log(pattern.test(str))
