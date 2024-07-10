@@ -1,25 +1,24 @@
-const number = document.querySelector("h1")
-const increase = document.querySelector(".btn-increase")
-const decrease = document.querySelector(".btn-decrease")
+const app = [
+    {
+        name: 'app1',
+        id: 1,
+        description: 'This is app1'
+    },
+    {
+        name: 'app2',
+        id: 2,
+        description: 'This is app2'
+    },
+    {
+        name: 'app3',
+        id: 3,
+        description: 'This is app3'
+    }
+] 
 
-var count = 0
+const strApp = JSON.stringify(app)
+const display = JSON.parse(strApp)
+// display.map((item,index)=>(index === 2 ? item.description = 'success' : item.description = 'failed'))
 
-increase.addEventListener("click", function(){
-    count++
-    number.textContent = count
-})
+// console.log(typeof(display))
 
-decrease.addEventListener("click", function(){
-    count = count <= 0 ? 0 : count -1
-    number.textContent = count
-})
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    count = 0 
-    number.textContent = count
-})
-
-setInterval(()=>{
-    count = count < 10 ? count - 1 : 0
-    number.textContent = count
-}, 1000)
