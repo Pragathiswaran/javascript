@@ -269,4 +269,135 @@ var findMaxLength = function(nums) {
 };
 // console.log(findMaxLength([0,0,0,1,1,1,0]))
 
-console.log(Math.abs(1))
+// console.log(Math.abs(1))
+
+var merge = function(nums1, m, nums2, n) {
+
+    if(nums1.length !== m){
+        nums1.splice(m)
+    }
+   
+    if(nums2.length !== n){
+       nums2.splice(n)
+    }
+     
+     for(let i = 0; i < n; i++){
+       nums1.push(nums2[i])
+     }
+   
+     return nums1.sorted()
+    // return [nums1.length, nums2.length]
+};
+const array1 = [-10,-10,-9,-9,-9,-8,-8,-7,-7,-7,-6,-6,-6,-6,-6,-6,-6,-5,-5,-5,-4,-4,-4,-3,-3,-2,-2,-1,-1,0,1,1,1,2,2,2,3,3,3,4,5,5,6,6,6,6,7,7,7,7,8,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+const array2 = [-10,-10,-9,-9,-9,-9,-8,-8,-8,-8,-8,-7,-7,-7,-7,-7,-7,-7,-7,-6,-6,-6,-6,-5,-5,-5,-5,-5,-4,-4,-4,-4,-4,-3,-3,-3,-2,-2,-2,-2,-2,-2,-2,-1,-1,-1,0,0,0,0,0,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,7,7,8,8,8,8,9,9,9,9]
+const m1 = 55
+const m2 = 99
+
+// console.log(merge(array1,m1,array2,m2))
+
+for(let i = 0; i < array1.length; i++){
+    // console.log(`${i+1}.${array1[i]}`)
+}
+
+let a = [-1,2,3]
+let b = 0
+for(let i = a.length - 1; i >= 0; i--){
+    b+= a[i]*Math.pow(10 , i)
+}
+
+// console.log(b)
+
+// console.log(a * Math.pow(10 , 1))
+// console.log(a.toString().split('').reverse('').join(''))
+
+var addTwoNumbers = function(l1, l2) {
+    let arrayLength = l1.length + l2.length
+    let num1 = 0, num2 = 0, totalNum = 0 , numArray = []
+
+    for(let i = 0; i < arrayLength; i++){
+        if(i < l1.length){
+            num1 += l1[i] * Math.pow(10, i)
+        } else {
+            num2 += l2[i - l1.length] * Math.pow(10, i - l1.length)
+        }
+    }
+
+    totalNum = num1 + num2
+    
+    if(totalNum == 0){
+        numArray.push(totalNum)
+    }
+
+    while(totalNum > 0){
+        numArray.push(Math.floor(totalNum % 10))
+        totalNum = Math.floor(totalNum / 10)
+    }
+    
+    return numArray
+    
+};
+
+// let l1 = [2,4,3], l2 = [5,6,4]
+
+// let l1 = [0], l2 = [0]
+let l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+// console.log(addTwoNumbers(l1,l2))
+
+
+// const node1 = new ListNode(1)
+// const node2 = new ListNode(2)
+
+// node1.next = node2
+// console.log(node1.val)
+
+// var addTwoNum = function (l1, l2){
+//     const dummyList = new ListNode()
+//     let current = dummyList
+//     let carry = 0, total = 0
+
+//     if(l1,l2,carry){
+//         total = carry
+
+//         if(l1){
+//             total += l1.val
+//             l1 = l1.next
+//         }
+
+//         if(l2){
+//             total += l2.val
+//             l2 = l2.next
+//         }
+
+//         let num = total % 10
+//         carry = Math.floor(total / 10)
+//         current.next = new ListNode(num)
+//         current = current.next
+//     }
+
+//     return current.next
+// }
+
+// console.log(addTwoNum(l1,l2))
+
+class ListNode{
+    constructor(val, next = null){
+        this.val = val
+        this.next = next
+    }
+}
+
+let node1 = new ListNode(2)
+let node2 = new ListNode(4)
+node1.next = node2
+
+const list = {
+    'node1':{
+        'val':node1.val,
+        'next':{
+            'val':node2.val,
+            'next':node2.next
+        }
+    }
+}
+
+console.table(list)
