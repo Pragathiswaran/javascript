@@ -3,6 +3,7 @@ const prevButton = document.querySelector('.prev-btn')
 const nextButton = document.querySelector('.next-btn')
 let count = 0;
 
+// Add event listener to next button
 nextButton.addEventListener('click',()=>{
 
     if(count < slide.length - 1){
