@@ -1,42 +1,42 @@
-body{
-    background: url('./itachi.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
-
 .container{
-   display: flex;
-   justify-content: center;
-   margin-top: 15%;
-}
-
-.form{
-    width: 20%;
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    padding: 30px;
-    border: 1px solid black;
-    background: transparent;
-}
-
-input{
-    padding:10px 20px 10px;
-}
-
-.form > .input-box{
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-
-.btn-login{
-    margin-top: 5px;
+    position: relative;
+    justify-content: space-between;
+    margin: 0 auto;
     padding: 10px;
-    border: none;
-    cursor: pointer;
-    background: transparent;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
 }
+
+.holes-container{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+}
+
+.holes{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    background-color: white;
+}
+
+.hole1{
+    background: #000;
+}
+
+.hole2{
+    background:  #f00;
+}
+
+.hole3{
+    background: blue;
+}
+
+.hole4{
+    background: green;
+}
+
