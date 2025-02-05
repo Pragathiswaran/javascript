@@ -288,23 +288,21 @@ function countChar(str, char) {
   }
   console.log(countChar("hello world", "l")); // Output: 3
 
-  function areArraysEqual(arr1, arr2) {
+function areArraysEqual(arr1, arr2) {
     if(arr1.length !== arr2.length) return false
-    
+
     for(let i = 0; i < arr1.length; i++){
         if(arr1[i] !== arr2[i]) return false
     }
     return true
-  }
-  console.log(areArraysEqual([1, 2, 3], [1, 2, 3])); // Output: true
-  console.log(areArraysEqual([1, 2, 3], [1, 3, 2])); // Output: false
+}
+console.log(areArraysEqual([1, 2, 3], [1, 2, 3])); // Output: true
+console.log(areArraysEqual([1, 2, 3], [1, 3, 2])); // Output: false
 
 function removeDuplicates(arr) {
     return Array.from(new Set(arr))
 }
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
-
-
 
 function rotateArray(arr, k) {
     let n = arr.length;
@@ -312,4 +310,99 @@ function rotateArray(arr, k) {
     return [...arr.slice(-k),...arr.slice(0,n -k)]
 }
 console.log(rotateArray([1, 2, 3, 4, 5, 6], 2));
-console.log(1 % 5)
+// console.log(1 % 5)
+
+function isPangram(str) {
+    let letters = new Set()
+    
+    for(let char of str.toLowerCase()){
+        if(char >= "a" && char <= "z"){
+            letters.add(char)
+        }
+        
+        if(letters.size === 26) return true
+    }
+    
+    return false
+}
+console.log(isPangram("The quick brown fox jumps over the lazy dog")); // Output: true
+console.log(isPangram("Hello world")); // Output: false
+
+
+function isNumberPalindrome(num) {
+    let original = num
+    let reversed = 0
+    
+    while(num > 0){
+        let digit = num % 10
+        reversed = reversed * 10 + digit
+        num = Math.floor(num / 10)
+    }
+    
+    return reversed === original
+  }
+  console.log(isNumberPalindrome(121)); // Output: true
+  console.log(isNumberPalindrome(123)); // Output: false
+
+
+  function findSmallestNumber(arr) {
+    if(arr.length < 1) return false
+    
+    return Math.min(...arr)
+   }
+   console.log(findSmallestNumber([10,2, 20, 5, 30, 15])); // Output: 5
+
+function isValidPalindrome(str) {
+let formatedStr = str.replace(/[0-9\s\W_]/g,'').toLowerCase()
+let left = 0, right = formatedStr.length - 1
+
+while(left < right){
+    if(formatedStr[left] !== formatedStr[right]) return false
+    left++
+    right--
+}
+
+return true
+}
+console.log(isValidPalindrome("A man, a plan, a canal: Panama")); // Output: true
+console.log(isValidPalindrome("race a car")); // Output: false
+
+
+function sumOfEvenNumbers(arr) {
+    let res = 0
+    for(let num of arr){
+        if(num % 2 === 0) res+= num
+    }
+    
+    return res
+    
+  //   return arr.reduce((sum,num) => num % 2 === 0 ? sum + num : sum, 0)
+  }
+  console.log(sumOfEvenNumbers([1, 2, 3, 4, 5, 6])); // Output: 12
+
+
+  function firstUniqueChar(str) {
+    if(str.length < 1) return null
+    
+    let letters = {}
+    
+    for(let char of str){
+        letters[char] = (letters[char] || 0) + 1
+    }
+    
+    for(let value of str){
+        if(letters[value] === 1) return value
+    }
+    
+    return null
+  }
+  console.log(firstUniqueChar("leetcode")); // Output: "l"
+  console.log(firstUniqueChar("loveleetcode")); // Output: "v"
+
+
+  function isPerfectSquare(num) {
+    if (num < 1) return false;
+    
+    let sqrt = Math.sqrt(num);
+    return sqrt === Math.floor(sqrt); // Check if sqrt is an integer
+  }
