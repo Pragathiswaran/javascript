@@ -401,8 +401,50 @@ function sumOfEvenNumbers(arr) {
 
 
   function isPerfectSquare(num) {
-    if (num < 1) return false;
+    if (num <= 1) return false;
     
-    let sqrt = Math.sqrt(num);
-    return sqrt === Math.floor(sqrt); // Check if sqrt is an integer
+    let sqrt = Math.sqrt(num)
+    return sqrt === Math.floor(sqrt); 
   }
+  
+  console.log(isPerfectSquare(3))
+
+  function maxSubarraySum(arr) {
+    if(arr.length === 0) return false
+    let start = 0, end = 0, tempt = 0
+    let max = arr[0], cur = arr[0]
+    
+    for(let i = 1; i < arr.length; i++){
+        
+        if(arr[i] > (cur + arr[i])){
+            cur = arr[i]
+            tempt = i
+        } else {
+            cur = cur + arr[i]
+        }
+        
+        if(cur > max){
+            max = cur
+            start = tempt
+            end = i
+        }
+    }
+    
+    return [max, arr.slice(start, end + 1)]
+  }
+  console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+
+  function* fibonacci_generator(){
+    let first = 0, second = 1;
+    
+    while(true){
+        yield first;
+       [first, second] = [second, first + second];
+    }
+}
+
+let generator = fibonacci_generator()
+
+console.log(generator.next());
+console.log(generator.next());
