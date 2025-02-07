@@ -448,3 +448,17 @@ let generator = fibonacci_generator()
 
 console.log(generator.next());
 console.log(generator.next());
+
+
+function* inorderArray(arr){
+    if(!Array.isArray(arr) || arr.length === 0) yield []
+
+    for(let i =0; i < arr.length; i++){
+        if(Array.isArray(arr[i]))yield* inorderArray(arr[i])
+        else yield arr[i]
+    }
+}
+
+let gen = inorderArray([1, [2, 3], [4, [5, 6]]])
+console.log(gen.next().value);
+console.log(gen.next().value);
