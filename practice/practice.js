@@ -74,3 +74,25 @@ const getOccurence = (str, char) => {
 console.log(getOccurence(str1, "a"));
 
 console.log('hello world'.toLocaleUpperCase())
+
+// Sum the numbers that inbetween in the 0
+function addInbetween(nums){
+    let res = []
+    let num = 0
+    let flag = 0
+    for(let i = 0; i < nums.length; i++){
+        if(flag == 1) num += nums[i]
+        
+        if(nums[i] == 0 && flag == 1){
+            if(num != 0) res.push(num)
+            num = 0
+        }
+        
+        if(nums[i] == 0 && flag == 0) flag++
+    }
+    
+    return res
+}
+
+let arr1 = [0,1,2,0,1,2,3,4,5,0,3,0,2,0,2,0,3,4,5]
+console.log(addInbetween(arr1)) // [ 3, 15, 3, 2, 2 ]
