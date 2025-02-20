@@ -96,3 +96,29 @@ function addInbetween(nums){
 
 let arr1 = [0,1,2,0,1,2,3,4,5,0,3,0,2,0,2,0,3,4,5]
 console.log(addInbetween(arr1)) // [ 3, 15, 3, 2, 2 ]
+
+//Leetcode Question No: 7 Reverse integer
+
+function reverseInt(num){
+    let flag = 1 
+    let res = 0
+    if(num < 0){
+        num = Math.abs(num)
+        flag = -1
+    }
+    
+    while(num > 0){
+        temp = num % 10
+        res = res * 10 + temp
+        num = Math.floor(num / 10)
+    }
+    
+    //check if the reversed number is within the range of signed 32 bit integer
+    if(num > (2 ** 31) - 1 || num < -(2 ** 31)) return 0
+    
+    return res * flag
+}
+
+console.log(reverseInt(-123456789))
+console.log(2 ** 31)
+console.log(-(2 ** 31))
