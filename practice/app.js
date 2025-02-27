@@ -75,4 +75,34 @@ const fetchData = async () => {
     }, 1000)
 }
 
-fetchData().then(data => console.log(data)).catch(error => console.log(error))
+// fetchData().then(data => console.log(data)).catch(error => console.log(error))
+
+const findPrefix = (documents, version) => {
+    // console.log('findPrefix called')
+    let pattern = `_v${version}_`
+    
+    let filteredFileName = documents
+            .filter(doc => doc.includes(pattern))
+            .map(doc => doc.split(pattern)[1])
+    
+    if(filteredFileName.length === 0) return []
+    
+    return findCommonPrefix(filteredFileName)
+};
+
+const findCommonPrefix = (str) => {
+    // console.log('findCommonPrefix called')
+    let prefix = str[0]
+    
+    for(let i = 1; i < str.length; i++){
+        while(!str[i].startsWith(prefix)){
+            prefix = prefix.slice(0, -1)
+            if(!prefix) return []
+        }
+    }
+    
+    return prefix
+}
+
+let arr = ['_doc1_v1_hello.txt','_doc1_v1_helfo.docs','_doc1_v2_hedlo.txt','_doc1_v1_healo.pdf',]
+console.log(findPrefix(arr,1))
